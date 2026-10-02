@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f16">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>Ark Dump</title>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="eyebrow">ARK DUMP</div>
+    <h1>Yo-kai NFC Tool</h1>
+    <p>Versão PWA para iPhone</p>
+  </header>
+
+  <section class="card hero">
+    <div class="status ok" id="state">PRONTO</div>
+    <h2>Dump / análise de tag</h2>
+    <p class="muted">Importe um dump salvo pelo Chameleon/Ark Dump ou cole os dados das páginas.</p>
+    <div class="buttons">
+      <button class="primary" id="openFile">📂 Importar dump</button>
+      <button id="pasteBtn">📋 Colar dump</button>
+      <button id="clearBtn">🗑 Limpar</button>
+      <input type="file" id="fileInput" accept=".bin,.hex,.txt" hidden>
+    </div>
+    <div class="notice">
+      <b>NFC ao vivo:</b> o navegador do iPhone não expõe a Web NFC para páginas/PWAs. Esta versão funciona como ferramenta web de análise e dump, mas não inicia uma leitura NFC nativa do iPhone.
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">UID</div>
+      <div id="uid" class="big mono">—</div>
+      <div class="kv"><span>Bytes</span><b id="uidBytes">—</b></div>
+    </div>
+    <div class="card">
+      <div class="label">TAG</div>
+      <div id="tagType" class="big">—</div>
+      <div class="chips" id="techs"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sectionHead">
+      <h2>Páginas</h2>
+      <span id="count" class="pill">0/45</span>
+    </div>
+    <div id="pages" class="pages">Nenhum dump carregado.</div>
+  </section>
+
+  <section class="card">
+    <div class="sectionHead"><h2>NDEF / texto</h2></div>
+    <pre id="text">—</pre>
+  </section>
+
+  <section class="card">
+    <div class="sectionHead">
+      <h2>PWD / PACK</h2>
+      <span id="auth" class="pill">não informado</span>
+    </div>
+    <div class="two">
+      <div><div class="label">PWD</div><input id="pwd" class="input mono" maxlength="8" placeholder="XXXXXXXX"></div>
+      <div><div class="label">PACK</div><input id="pack" class="input mono" maxlength="4" placeholder="XXXX"></div>
+    </div>
+  </section>
+
+  <footer>Ark Dump • PWA • Ferramenta local</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
